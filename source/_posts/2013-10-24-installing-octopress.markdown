@@ -26,7 +26,8 @@ Steps...
 ---
 1. Install and Ruby
 2. Install Octopress (really just checking out a git repo)
-3. Configure your Web Server
+3. Configure Octopress
+l. Configure your Web Server
 
 Install Ruby
 ---
@@ -92,6 +93,33 @@ $ cd octopress
 $ gem install bundler
 $ bundle install
 $ rake install
+```
+
+## Configure Octopress
+#####You need to edit a few configuration options for Octopress.
+
+##### _config.yml
+Edit this file and configure the first few lines to your liking. You can see below how I configured mine. There are more configuration options near the bottom of the file that you can explore.
+``` bash
+url: http://phutchins.com
+title: Philip Hutchins
+subtitle: Head in the cloud...
+author: Philip Hutchins
+simple_search: http://google.com/search
+description:
+```
+
+##### Rakefile
+Edit this file to configure the way your blog deploys
+``` bash
+## -- Rsync Deploy config -- ##
+# Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
+ssh_user       = "phutchins@phutchins.com"
+ssh_port       = "22"
+document_root  = "/var/www/vhosts/phutchins.com/httpdocs/"
+rsync_delete   = false
+rsync_args     = ""  # Any extra arguments to pass to rsync
+deploy_default = "rsync"
 ```
 
 ## Configure your Web Server
@@ -171,20 +199,75 @@ As Octopress is based on Jekyll, it offers rake tasks to create posts and pages 
 
 #### Adding a Blog Post
 
+To create a post you use rake. Just replace "My Blog Title" with your title.
+``` bash
+rake new_post["My Blog Title"]
+```
+
+This creates a file for your post in the source/_posts directory named with the date that you created it and a munged version of the title you used. By default, these are created as a [Markdown](http://daringfireball.net/projects/markdown/) files. Navigate to your newly created file and you will see something like this...
+```bash
+---
+layout: post
+title: "My Blog Title"
+date: 2013-09-14 00:21
+comments: true
+categories: [Blog, Awesome]
+---
+```
 
 Creating the post
 -----------------
 
+Once you have the post file created, you can begin to add your content below the last set of three dashes. You work with simple text but why stop there when you have [Markdown](http://daringfireball.net/projects/markdown/)??
+
 Working with Markup
 -------------------
 
+Markdown lets you do a lot so I'll only cover a few simple things here.
+
+##### Headers
+You can create headers in a few ways.
+
+The above header is created like this. You can add are remove #'s to change the size. A single # represents a H1 while three #'s represents an H3 and so on.
+```
+##### Headers
+```
+
+Underlining text with equals or dashes creates H1's and H2's respectively.
+```
+This is an H1
+=============
+
+This is an H2
+-------------
+```
+It does not matter how many equals or dashes you use. Any number will work
+
+##### Code Blocks
+For a code block, you can indent lines with a tab or 4 spaces. You can also use ``` before and after your code. To specify the type of highlighting use something like this...
+
+    ``` bash
+    ls -altr
+    ```
+
+##### Links
+To create a link, use the following syntax.
+```
+[Link Text](http://my.page.com)
+```
+
+For more information check out the [Markdown Documentation Page](http://daringfireball.net/projects/markdown/syntax).
+
 Deploy your new post into production
 ------------------
+To generate your blog, simply run `rake generate`. This will create the blog and all files required for it in the `public` folder.
 
+Then to publish to the location you configured in `Rakefile`, run `rake deploy`. This will push your `public` folder to the configed location.
 
 Managing your Content
 =====================
-
+There are a few ways that you can manage your blog. I'm current using a git repo to store the entire Octopress codebase. This allows you to not only edit and make updates from many locations but it also gives you the ability to use git as a way to publish. 
 
 Overall thoughts...
 ===================
+Octopress is pretty easy to use and great for someone that doesn't mind a little hacking. Even better for someone that likes a little hacking. :) If you're like me, you hate when gui editors change something that you've typed or created becuase it thinks it knows better than you do.
