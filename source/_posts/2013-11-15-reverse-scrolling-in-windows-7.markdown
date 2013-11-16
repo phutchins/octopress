@@ -6,9 +6,6 @@ comments: true
 published: true
 categories: [windows]
 ---
-
-How to reverse your scrolling in Windows 7
-===
 There is no straight forward way built into Windows 7 to reverse the scrolling direction for your mouse. If you're like me, you primarily use a Mac with OSX. Once you get used to the natural scrolling, its kind of nice. I got tired of trying to wrap my brain around switching back and forth between different scrolling directions when at work or home and decided to find a way to switch my Windows 7 machine to match my Mac.
 
 There are two real ways to do this...
