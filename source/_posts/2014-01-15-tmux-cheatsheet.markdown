@@ -47,6 +47,7 @@ In tmux, hit the prefix `ctrl+b` (my modified prefix is ctrl+a) and then:
     f  find window
     ,  name window
     &  kill window
+    .  move window (to desired unused tab number)
 
 ## Panes (splits)
 
