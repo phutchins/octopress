@@ -3,7 +3,7 @@ layout: post
 title: "tmux Cheatsheet"
 date: 2014-01-15 07:31
 comments: true
-categories: 
+categories:
 ---
 
 # tmux shortcuts & cheatsheet
@@ -36,24 +36,29 @@ In tmux, hit the prefix `ctrl+b` (my modified prefix is ctrl+a) and then:
 
 ## Sessions
 
+```bash
     :new<CR>  new session
     s  list sessions
     $  name session
+```
 
 ## Windows (tabs)
 
+```bash
     c  new window
     w  list windows
     f  find window
     ,  name window
     &  kill window
     .  move window (to desired unused tab number)
+```
 
 ## Panes (splits)
 
+```bash
     %  vertical split
     "  horizontal split
-    
+
     o  swap panes
     q  show pane numbers
     x  kill pane
@@ -63,11 +68,13 @@ In tmux, hit the prefix `ctrl+b` (my modified prefix is ctrl+a) and then:
     PREFIX q (Show pane numbers, when the numbers show up type the key to goto that pane)
     PREFIX { (Move the current pane left)
     PREFIX } (Move the current pane right)
+```
 
 ## Resizing Panes
 
 You can also resize panes if you don’t like the layout defaults. I personally rarely need to do this, though it’s handy to know how. Here is the basic syntax to resize panes:
 
+```bash
     PREFIX : resize-pane (By default it resizes the current pane down)
     PREFIX : resize-pane -U (Resizes the current pane upward)
     PREFIX : resize-pane -L (Resizes the current pane left)
@@ -78,23 +85,29 @@ You can also resize panes if you don’t like the layout defaults. I personally 
     PREFIX : resize-pane -R 20 (Resizes the current pane right by 20 cells)
     PREFIX : resize-pane -t 2 20 (Resizes the pane with the id of 2 down by 20 cells)
     PREFIX : resize-pane -t -L 20 (Resizes the pane with the id of 2 left by 20 cells)
+```
 
 ## Copy mode:
 
 Pressing PREFIX [ places us in Copy mode. We can then use our movement keys to move our cursor around the screen. By default, the arrow keys work. we set our configuration file to use Vim keys for moving between windows and resizing panes so we wouldn’t have to take our hands off the home row. tmux has a vi mode for working with the buffer as well. To enable it, add this line to .tmux.conf:
 
+```bash
     setw -g mode-keys vi
+```
 
 With this option set, we can use h, j, k, and l to move around our buffer.
 
 To see all of the avilable commands in vi mode you can use the following at the tmux command prompt (Ctrl+b :)
 
+```bash
 	list-keys -t vi-copy
+```
 
 To get out of Copy mode, we just press the ENTER key. Moving around one character at a time isn’t very efficient. Since we enabled vi mode, we can also use some other visible shortcuts to move around the buffer.
 
 For example, we can use "w" to jump to the next word and "b" to jump back one word. And we can use "f", followed by any character, to jump to that character on the same line, and "F" to jump backwards on the line.
 
+```bash
        Function                vi             emacs
        Back to indentation     ^              M-m
        Clear selection         Escape         C-g
@@ -126,33 +139,46 @@ For example, we can use "w" to jump to the next word and "b" to jump back one wo
        Search forward          /              C-s
        Start of line           0              C-a
        Transpose chars                        C-t
+```
 
 ## Misc
 
+```bash
     d  detach
     t  big clock
     ?  list shortcuts
     :  prompt
+```
 
 ## Configurations Options:
 
+```bash
     # Mouse support - set to on if you want to use the mouse
     * setw -g mode-mouse off
     * set -g mouse-select-pane off
     * set -g mouse-resize-pane off
     * set -g mouse-select-window off
+```
 
+```bash
     # Set the default terminal mode to 256color mode
     set -g default-terminal "screen-256color"
+```
 
+```bash
     # enable activity alerts
     setw -g monitor-activity on
     set -g visual-activity on
+```
 
+```bash
     # Center the window list
     set -g status-justify centre
+```
 
+```bash
     # Maximize and restore a pane
     unbind Up bind Up new-window -d -n tmp \; swap-pane -s tmp.1 \; select-window -t tmp
     unbind Down
     bind Down last-window \; swap-pane -s tmp.1 \; kill-window -t tmp
+```
