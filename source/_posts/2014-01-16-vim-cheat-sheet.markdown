@@ -26,3 +26,11 @@ And then use regex to munge each of the lines. This example substitutes the star
 ### Navigation
   gg - beginning of file
   G  - end of file
+
+## Split & Diff
+  Open two files in diff mode
+    vim -d file.one file.two
+
+  Commands while in diff mode
+    Ctrl-w Ctrl-w  (Switch windows)
+    Ctrl-w =  (Make both windows equal after terminal resize)
