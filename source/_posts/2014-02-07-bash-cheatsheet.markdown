@@ -6,8 +6,6 @@ comments: true
 categories: bash, cheatsheet
 ---
 
-# Bash CheatSheet
-
 ##  History and Replacement
 
 Search history
