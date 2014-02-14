@@ -3,7 +3,7 @@ layout: post
 title: "tmux Cheatsheet"
 date: 2014-01-15 07:31
 comments: true
-categories:
+categories: tmux, cheatsheet
 ---
 
 # tmux shortcuts & cheatsheet
@@ -62,6 +62,7 @@ In tmux, hit the prefix `ctrl+b` (my modified prefix is ctrl+a) and then:
     o  swap panes
     q  show pane numbers
     x  kill pane
+    z  zoom in/out of selected pane
     +  break pane into window (e.g. to select text by mouse to copy)
     -  restore pane from window
     ⍽  space - toggle between layouts
