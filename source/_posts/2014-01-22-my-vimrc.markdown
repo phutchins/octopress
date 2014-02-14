@@ -3,6 +3,7 @@ layout: post
 title: "My .vimrc"
 date: 2014-01-22 09:29
 comments: true
+published: false
 categories:
 ---
 
