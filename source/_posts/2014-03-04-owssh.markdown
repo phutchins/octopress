@@ -1,29 +1,31 @@
 ---
 layout: post
-title: "owssh"
+title: "owSSH Documentation"
 date: 2014-03-04 11:30
 comments: true
-categories: ruby, gem, opsworks, aws
+categories: [ruby, gem, opsworks, aws]
 ---
+______
+**owssh** is a Ruby gem that wraps awscli and allows you to quickly and easily list all stacks, stack details and ssh to nodes within a stack in OpsWorks. It provides a executable that gives you a command line tool called owssh and also provides a library that returns usable objects containing stack information.
 
-= OWssh Documentation =
-owssh is a Ruby gem that wraps awscli and allows you to quickly and easily list all stacks, stack details and ssh to nodes within a stack in OpsWorks. It provides a executable that gives you a command line tool called owssh and also provides a library that returns usable objects containing stack information.
 
-
-== Prerequisites ==
+Prerequisites
+============
 + awscli - http://aws.amazon.com/cli/
-
 Installed automatically upon gem installation
+
 + command_line_reporter - https://rubygems.org/gems/command_line_reporter
 
 
-== Installation ==
+Installation
+============
 + Ensure that you have the prerequisites installed
 + Install the owssh gem
     gem install owssh
 
 
-== Configuration ==
+Configuration
+=============
 + Ensure that you have the awscli config file set up properly
     ~/.aws/config
 + Have your SSH key in the correct location and with the correct name and permissions (the name of this key file will be moved to a config file in the future)
@@ -31,7 +33,8 @@ Installed automatically upon gem installation
     chmod 600 ~/.ssh/id_rsa_dev
 
 
-== Command Line Usage ==
+Command Line Usage
+==================
 owssh list - List all environments
 owssh describe - Show details of hosts in all stacks
 owssh describe [Stack Name] - Show details of a specific stack
@@ -42,7 +45,8 @@ owssh [Stack Name] [Hostname or Type] "Your command here" - SSH to a host in a s
  Hostname - The name of the host. I.E. rails-app1, resque1, etc...
 
 
-== Library Usage ==
+Library Usage
+=============
 
 
 HASH get_stacks                      - Returns a hash with key of the Stack Name and Value of the Stack ID
