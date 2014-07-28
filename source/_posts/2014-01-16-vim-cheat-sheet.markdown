@@ -36,6 +36,8 @@ And then use regex to munge each of the lines. This example substitutes the star
 
        gg              beginning of file
        G               end of file
+       zc              Close fold (depends on foldmethod)
+       zo              Open fold (depends on foldmethod)
 ```
 
 ### Manipulation
