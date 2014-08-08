@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: page
 title: "VIM Cheat Sheet"
 date: 2014-01-16 15:01
 comments: true
-categories: VIM
+categories: [cheatsheet, VIM]
 ---
 
 ### Comment mutiple lines
@@ -33,9 +33,27 @@ And then use regex to munge each of the lines. This example substitutes the star
 
        b               Move BACK one word
        f               Move FORWARD one word
+       [count] e       Move FORWARD to the end of word [count]
+       [count] E       Move FORWARD to the end of WORD [count]
 
+       0 or HOME       beginning of line
+       g0 or g HOME    beginning of line when line wraps
+       $ or END        end of line
        gg              beginning of file
        G               end of file
+
+       [int]f[char]    To [int]th occurrence of [char] to the right
+       [int]F[char]    To [int]th occurrence of [char] to the left
+       [int]t[char]    Till before [int]th occurrence of [char] to the right
+       [int]T[char]    Till before [int]th occurrence of [char] to the left
+
+       [int] j         Move [int] lines downward
+         [int] CTRL-J
+         [int] CTRL-N
+       [int] k         Move [int] lines upward
+         [int] CTRL-P
+       [int] h          Move [int] lines to the left
+       [int] l          Move [int] lines to the right
 ```
 
 ### Manipulation

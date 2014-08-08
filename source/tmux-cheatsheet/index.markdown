@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: page
 title: "tmux Cheatsheet"
 date: 2014-01-15 07:31
 comments: true
-categories: tmux, cheatsheet
+categories: [tmux, cheatsheet]
 ---
 
 # tmux shortcuts & cheatsheet

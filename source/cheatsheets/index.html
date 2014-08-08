@@ -1,0 +1,13 @@
+---
+layout: page
+title: Cheat Sheets
+footer: false
+---
+
+<ul class="pages">
+{% for page in site.pages %}
+    {% if page.categories contains 'cheatsheet' %}
+    <li><a href="{{ BASE_PATH }}{{ page.url }}">{{ page.title }}</a></li>
+    {% endif %}
+{% endfor %}
+</ul>

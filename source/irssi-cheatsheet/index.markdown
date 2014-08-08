@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: "irssi Cheatsheet"
 date: 2014-03-09 14:12
 comments: true

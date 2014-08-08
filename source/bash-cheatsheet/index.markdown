@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: page
 title: "Bash CheatSheet"
 date: 2014-02-07 13:14
 comments: true
-categories: bash, cheatsheet
+categories: [bash, cheatsheet]
 ---
 
 ##  History and Replacement

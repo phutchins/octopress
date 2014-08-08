@@ -1,12 +1,13 @@
 ---
-layout: post
+layout: page
 title: "owSSH Documentation"
 date: 2014-03-04 11:30
 comments: true
-categories: [ruby, gem, opsworks, aws]
+sharing: true
+footer: true
+categories: [tools, ruby, gem, opsworks, aws]
 ---
-______
-**owssh** is a Ruby gem that wraps awscli and allows you to quickly and easily list all stacks, stack details and ssh to nodes within a stack in OpsWorks. It provides a executable that gives you a command line tool called owssh and also provides a library that returns usable objects containing stack information.
+**owSSH** is a Ruby gem that wraps awscli and allows you to quickly and easily list all stacks, stack details and ssh to nodes within a stack in OpsWorks. It provides a executable that gives you a command line tool called owssh and also provides a library that returns usable objects containing stack information.
 
 
 ## Prerequisites
