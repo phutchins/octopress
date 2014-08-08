@@ -54,6 +54,8 @@ And then use regex to munge each of the lines. This example substitutes the star
          [int] CTRL-P
        [int] h          Move [int] lines to the left
        [int] l          Move [int] lines to the right
+       zc              Close fold (depends on foldmethod)
+       zo              Open fold (depends on foldmethod)
 ```
 
 ### Manipulation

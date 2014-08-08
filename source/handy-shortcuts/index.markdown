@@ -19,6 +19,11 @@ Iterate through all files in a directory and split the names to be used also as 
 for file in *; do echo "Checking $file"; diff ./$file ~/github/backseat/widgets/$(echo ${file//.*/ })/$file; done
 ```
 
+Perform a find and replace on multiple files at once using find and perl
+```bash
+find /path/to/directory -name "*.txt" | xargs perl -pi -e 's/stringtoreplace/replacementstring/g'
+```
+
 #### Constrain Grep Line Output
 Grep and return X (40 in this case) characters before and after result per line
 This helps to avoid having grep results that return extremely long lines which makes it difficult to parse the output.
