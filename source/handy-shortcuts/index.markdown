@@ -24,6 +24,15 @@ Perform a find and replace on multiple files at once using find and perl
 find /path/to/directory -name "*.txt" | xargs perl -pi -e 's/stringtoreplace/replacementstring/g'
 ```
 
+Kill multiple processes at the same time using ps and grep
+```bash
+kill $(ps aux | grep "$@" | grep -v "grep" | awk '{print $2}');
+```
+or add this to your .bash_aliases file to use it more conveniently
+```bash
+ka () { kill $(ps aux | grep "$@" | grep -v "grep" | awk '{print $2}'); }
+```
+
 #### Constrain Grep Line Output
 Grep and return X (40 in this case) characters before and after result per line
 This helps to avoid having grep results that return extremely long lines which makes it difficult to parse the output.
