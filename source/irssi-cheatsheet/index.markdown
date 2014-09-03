@@ -14,4 +14,11 @@ Ctrl-w            - Jump to NEXT window
 Meta-<number>     - Jump directly between windows 1-10
 Meta-<q-o>        - Jump directly between windows 11-19
 /window <number>  - Jump to any window with specified number
+/wc               - Close current window
+
+## Scrolling
+
+```bash
+/sb hh:mm         - Scroll back to time
+/sb end           - End scrollbacbk
 ```

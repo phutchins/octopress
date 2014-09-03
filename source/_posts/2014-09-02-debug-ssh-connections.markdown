@@ -19,9 +19,7 @@ Debugging SSH connection issues can be tricky and frustrating.
 ``` bash
 ssh my.host.com -VVV
 ```
-
 + Watch logs on remote server (if possible)
-
 + Run sshd on separate port with debug logging to console
 ``` bash
 /bin/sbin/sshd -p 24 -D -d -e
