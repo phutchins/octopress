@@ -3,6 +3,7 @@ layout: post
 title: "Generate Self-Signed WildCard SSL Cert"
 date: 2014-09-23 17:30
 comments: true
+published: false
 categories:
 ---
 
