@@ -24,3 +24,11 @@ Navigate history
     CTRL+p - Previous command
     CTRL+n - Next command
     ARROW KEYS - you can also use the arrow keys but the CTRL shortcuts keep you from having to remove your hands from the home keys
+
+
+### OSX Specific
+
+## Networking
+
+Show routing table
+    netstat -nr
