@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Debugging SSH Connection Issues"
-date: 2014-09-02 14:09
+date: 2015-03-09 09:09
 comments: true
-published: false
+published: true
 categories: [ssh, linux]
 ---
 
