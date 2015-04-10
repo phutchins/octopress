@@ -68,7 +68,7 @@ You can add them via command line...
 *nat
 iptables -t nat -A POSTROUTING -o [PUBLIC_INTERFACE] -j MASQUERADE
 *filter
-iptables -A FORWARD -i [PUBLIC_INTERFACE] -o [PRIVATE_INTERFACE] -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i [PUBLIC_INTERFACE] -o [PRIVATE_INTERFACE] -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
 iptables -A FORWARD -i [PRIVATE_INTERFACE] -o [PUBLIC_INTERFACE] -j ACCEPT
 ```
 The static config that this produces looks a little different than the commands used via command line to create it.
@@ -81,7 +81,7 @@ You can create an iptables file `/etc/iptables.rules` to load the rules from...
 *nat
 -A POSTROUTING -o [PUBLIC_INTERFACE] -j MASQUERADE
 *filter
--A FORWARD -i [PUBLIC_INTERFACE] -o [PRIVATE_INTERFACE] -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A FORWARD -i [PUBLIC_INTERFACE] -o [PRIVATE_INTERFACE] -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
 -A FORWARD -i [PRIVATE_INTERFACE] -o [PUBLIC_INTERFACE] -j ACCEPT
 ```
 ...then use the following bash script to restore the rules (this will wipe any existing rules not existing in /etc/iptables.rules
