@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Creating a proxy host on linux without installing anything"
+title: "Creating a proxy host on linux no additional software"
 date: 2015-04-08 11:16
 comments: true
 categories:
