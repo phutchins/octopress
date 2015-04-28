@@ -86,3 +86,10 @@ And then use regex to munge each of the lines. This example substitutes the star
 
     Ctrl-w =              Make both windows equal after terminal resize
 ```
+
+Display the differences between the currently open file and the saved version
+(this is great for seeing what the differences are in a recovered file)
+```
+:w !diff % -
+```
+
