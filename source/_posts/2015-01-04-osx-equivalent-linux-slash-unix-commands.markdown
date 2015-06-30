@@ -11,7 +11,9 @@ There are a few staple commands that we use as engineers to trobleshoot issues o
 ## Networking
 It is very handy to be able to determine what ports are listening on a box, or not. It's also helpful to be able to determine which process and binary is using that port.
 
-### Linux
+### List open ports
+
+#### Linux
 ```bash
 $ netstat -antlp
 (snippet of output)
@@ -23,7 +25,7 @@ tcp6       0      0 :::21030                :::*                    LISTEN      
 tcp6       0      0 :::21031                :::*                    LISTEN      15751/bitcoind
 ```
 
-### OSX
+#### OSX
 ```bash
 $ lsof -i -P -n
 (snippet of output)
@@ -36,3 +38,14 @@ node       5115 phutchins   17u  IPv4 0x769f1abf2516f123      0t0  TCP 127.0.0.1
 node       5115 phutchins   18u  IPv4 0x769f1abf2509a2c3      0t0  TCP 127.0.0.1:52444->127.0.0.1:27017 (ESTABLISHED)
 ```
 
+### List routes
+
+#### Linux
+```bash
+$ route -n
+```
+
+#### OSX
+```bash
+netstat -nr
+```
