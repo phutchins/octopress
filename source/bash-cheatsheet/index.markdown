@@ -25,6 +25,10 @@ Navigate history
     CTRL+n - Next command
     ARROW KEYS - you can also use the arrow keys but the CTRL shortcuts keep you from having to remove your hands from the home keys
 
+## Loops
+
+  for i in *.json; do knife environment from file $i; done
+
 
 ### OSX Specific
 
