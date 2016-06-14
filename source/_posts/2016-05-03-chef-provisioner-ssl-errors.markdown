@@ -45,7 +45,7 @@ Chef Client failed. 0 resources updated in 04 seconds
 ```
 
 ## Testing SSL
-Using the
+Using the `knife ssl check` command, check the status of ssl between you and your chef server.
 
 ## Obtaining an Updated cert.pem
 ```

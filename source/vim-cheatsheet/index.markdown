@@ -6,6 +6,18 @@ comments: true
 categories: [cheatsheet, VIM]
 ---
 
+### Diff Saved vs Unsaved
+```
+:w !diff % -
+```
+
+For an even better experience, you can add the following to your vimrc file...
+
+```
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+```
+... and use `:DiffOrig` to see the differences using VIM's side by side diff.
+
 ### Comment mutiple lines
 Select your lines with a VISUAL BLOCK
 	Ctrl + v
