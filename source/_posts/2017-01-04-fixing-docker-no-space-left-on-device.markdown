@@ -100,7 +100,13 @@ If you would like to expand it more or less, you can change the `+5G` on the end
 Visit [http://gparted.org/download.php](http://gparted.org/download.php) and download the gparted-live ISO for your architecture. In this case, I downloaded gparted-live-0.27.0-1-amd64.iso.
 
 ### Launch the VM Running GParted
-Here we run qemu and launch a virtual machine adding our Docker.qcow2 disk image as a drive. You'll select the options for booting GParted Live.
+Here we run qemu and launch a virtual machine adding our Docker.qcow2 disk image as a drive.
+
++ When prompted, you'll select the options for booting GParted Live.
++ Select don't touch keymap (unless you know what you're doing)
++ The next step should default to 33 (US English) so change it if needed, otherwise, hit enter
++ For mode, select start X & GParted automatically which should be default
++ Click on the GParted icon
 
 While launching, I saw a warning stating `overlayfs: missing 'workdir'`. You can safely ignore this. Just be patient and let it finish booting.
 
@@ -111,10 +117,14 @@ $ qemu-system-x86_64 -drive file=Docker.qcow2  -m 512 -cdrom ~/Downloads/gparted
 ```
 
 ### Expand the Partition
+In GParted...
 
-Once the VM has loaded, launch GParted, select the partition (it should be the only one) and resize it to use the full amount of space allocated for the disk.
-
-Click apply, then close GParted and exit the VM.
++ select the partition (it should be the largest one and should match the size you've seen when inspecting the image)
++ right click the partition and select resize/move
++ resize it to use the full amount of space allocated for the disk by dragging the right size of the darkened box to the far right of the block
++ click resize
++ click apply
++ close GParted and exit the VM
 
 ### Start Docker
 Start docker back up however you normally would start it.
