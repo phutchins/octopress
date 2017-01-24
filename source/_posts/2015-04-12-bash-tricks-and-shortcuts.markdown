@@ -175,3 +175,8 @@ Permissions Meaning
 --------T   Sticky bit is set, bot other execute is not set.
 --------t   Sticky bit and other execute are both set.
 ```
+
+### Permissions for Multi User Samba Directory
+```
+chmod -R u=rwX,g=rwXs,o=rX <share_root>
+```
