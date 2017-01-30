@@ -12,3 +12,10 @@ categories: [cheatsheet, linux]
 ```bash
 watch 'lsof -u bws | awk '\''{print $2}'\'' | sort | uniq -c | sort -n'
 ```
+
+## Check iowait and disk stats
+Use sar (which you will have had to install and enable previously) or...
+
+```bash
+iostat -xm 5
+```
