@@ -3,6 +3,7 @@ layout: post
 title: "Kubernetes Master or Minion DNS Failure"
 date: 2017-01-27 07:24
 comments: true
+published: false
 categories:
 ---
 
