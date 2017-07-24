@@ -8,6 +8,12 @@ categories: elasticsearch
 
 Elasticsarch is a wonderful and powerful search and analytics engine. Operating an ES cluster or node is generally fairly easy and straight forward however there are a few situations where the resolution to seemingly common issues is not so clear. I will gather my notes and helper scripts here in an effort to help others better understand and resolve these certain issues and configurations quickly.
 
+## Stats
+Determine the amount of space on each node and other storage related stats
+```
+curl -XGET 'http://localhost:9200/_nodes/stats' | jq '.nodes [] | .name, .fs'
+```
+
 ## Settings
 ### Set number of replicas for all indices to 0
 When you spin up a single node cluster, the default setting for number of replicas is 1. This means that the cluster is going to try to create a second copy of each shard. This is not possible as you only have one node in the cluster. This keeps your cluster (single node) in the yellow status and it will never reach green. A node can function this way but it is annoying to not see a green state when everything is actually healthy.
