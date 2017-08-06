@@ -48,5 +48,14 @@ Display all unassigned shards and reason for being unassigned
 curl -XGET localhost:9200/_cat/shards?h=index,shard,prirep,state,unassigned.reason| grep UNASSIGNED
 ```
 
+or
+
+```
+curl -XGET http://localhost:9200/_cluster/allocation/explain | jq '.'
+```
+
 ## Helper Scripts
   + [Shard Assignment Script](https://github.com/phutchins/elk-helpers/raw/master/scripts/assign_shard.sh)
+
+## Helpful Links
+  + [RED Elasticsearch Cluster? Panic no longer](https://www.elastic.co/blog/red-elasticsearch-cluster-panic-no-longer)
