@@ -54,6 +54,35 @@ or
 curl -XGET http://localhost:9200/_cluster/allocation/explain | jq '.'
 ```
 
+## Moving, canceling, and allocating shards (5.5)
+```
+ curl -XPOST http://localhost:9200/_cluster/reroute -d '{ "commands": [ { "cancel": { "index": "logstash-2017.07.26", "shard": 0}}]}'
+ curl -XPOST http://localhost:9200/_cluster/reroute -d '{ "commands": [ { "cancel": { "index": "logstash-2017.07.26", "shard": 0, "node": "storj-prod-1"}}]}'
+ curl -XGET http://localhost:9200/_cluster/allocation/explain | jq '.'
+ curl -XGET http://localhost:9200/_cluster/reroute?retry_failed
+ curl -XPOST http://localhost:9200/_cluster/reroute?retry_failed
+ curl -XGET http://localhost:9200/_cluster/allocation/explain | jq '.'
+ ./list
+ cd
+ cd scripts/
+ ./list_indices_sorted.sh
+ curl http://localhost:9200/_cluster/health | jq '.'
+ curl -XPOST http://localhost:9200/_cluster/reroute?retry_failed -d '{ "commands": [ { "allocate_replica": { "index": "logstash-2017.07.26", "shard": 0, "node": "storj-prod-1"}}]}'
+ curl -XPOST http://localhost:9200/_cluster/reroute?retry_failed -d '{ "commands": [ { "move": { "index": "logstash-2017.07.26", "shard": 0, "from_node": "storj-prod-1", "to_node": "storj-prod-2"}}]}'
+ curl -XPOST http://localhost:9200/_cluster/reroute?retry_failed -d '{ "commands": [ { "move": { "index": "logstash-2017.07.26", "shard": 2, "from_node": "storj-prod-1", "to_node": "storj-prod-2"}}]}'
+ curl -XPOST http://localhost:9200/_cluster/reroute?retry_failed -d '{ "commands": [ { "move": { "index": "logstash-2017.07.26", "shard": 2, "from_node": "storj-prod-3", "to_node": "storj-prod-2"}}]}'
+ ./list_indices_sorted.sh
+ curl http://localhost:9200/_cluster/health | jq '.'
+ curl -XGET http://localhost:9200/_cluster/allocation/explain | jq '.'
+ curl -XPOST http://localhost:9200/_cluster/reroute?retry_failed -d '{ "commands": [ { "move": { "index": "logstash-2017.08.01", "shard": 0, "from_node": "storj-prod-1", "to_node": "storj-prod-2"}}]}'
+ curl http://localhost:9200/_cluster/health | jq '.'
+ curl -XGET http://localhost:9200/_cluster/allocation/explain | jq '.'
+ curl http://localhost:9200/_cluster/health | jq '.'
+ curl -XGET localhost:9200/_cat/shards?h=index,shard,prirep,state,unassigned.reason| grep UNASSIGNED
+ curl http://localhost:9200/_cluster/health | jq '.'
+ ./list_indices_sorted.sh
+```
+
 ## Helper Scripts
   + [Shard Assignment Script](https://github.com/phutchins/elk-helpers/raw/master/scripts/assign_shard.sh)
 
